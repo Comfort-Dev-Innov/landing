@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Nunito } from 'next/font/google';
+import Header from '@/components/ui/header';
+import { AuroraBackground } from '@/components/ui/aurora-background';
 
 const nunito_sans = Nunito({
   style: ['normal', 'italic'],
@@ -25,7 +27,13 @@ export default function RootLayout({
       <body
         className={`${nunito_sans.variable} ${nunito_sans.className} antialiased`}
       >
-        {children}
+        <AuroraBackground
+          showRadialGradient={true}
+          className="h-full flex py-4 flex-col w-full items-center justify-start"
+        >
+          <Header />
+          <div className="gap-12 flex flex-col mt-24 w-full">{children}</div>
+        </AuroraBackground>
       </body>
     </html>
   );
