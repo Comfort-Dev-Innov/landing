@@ -27,13 +27,22 @@ export default function RootLayout({
       <body
         className={`${nunito_sans.variable} ${nunito_sans.className} antialiased`}
       >
-        <AuroraBackground
-          showRadialGradient={true}
-          className="h-full flex py-4 flex-col w-full items-center justify-start"
-        >
-          <Header />
-          <div className="gap-12 flex flex-col mt-24 w-full">{children}</div>
-        </AuroraBackground>
+        {process.env.NEXT_PUBLIC_POWERSAVING ? (
+          <div
+            className={`h-full flex py-4 flex-col w-full items-center justify-start bg-gradient-to-br from-primary to-tertiary`}
+          >
+            <Header />
+            <div className="gap-12 flex flex-col mt-24 w-full">{children}</div>
+          </div>
+        ) : (
+          <AuroraBackground
+            showRadialGradient={true}
+            className={`h-full flex py-4 flex-col w-full items-center justify-start`}
+          >
+            <Header />
+            <div className="gap-12 flex flex-col mt-24 w-full">{children}</div>
+          </AuroraBackground>
+        )}
       </body>
     </html>
   );
