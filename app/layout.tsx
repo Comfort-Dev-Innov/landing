@@ -27,7 +27,7 @@ export default function RootLayout({
       <body
         className={`${nunito_sans.variable} ${nunito_sans.className} antialiased`}
       >
-        {process.env.NEXT_PUBLIC_POWERSAVING ? (
+        {process.env.NEXT_PUBLIC_POWERSAVING === 'false' ? (
           <div
             className={`h-full flex py-4 flex-col w-full items-center justify-start bg-gradient-to-br from-primary to-tertiary`}
           >
