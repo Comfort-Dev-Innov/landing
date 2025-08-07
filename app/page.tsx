@@ -1,5 +1,7 @@
 import React from 'react';
 import { AuroraBackground } from '@/components/ui/aurora-background';
+import TechStack from '@/components/section/TechStackSection';
+import HeroSection from '@/components/section/HeroSection';
 
 const ComfortCardPreview = () => {
   const cards = [
@@ -27,16 +29,10 @@ const ComfortCardPreview = () => {
   ];
 
   return (
-    <div className="max-w-6xl mx-auto">
-      <header className="text-center mb-12">
-        <p className="font-bold text-5xl text-white mb-4 drop-shadow-lg">
-          Comfort Dev Innovations
-        </p>
-        <p className="text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
-          Tech made with and for comfort
-        </p>
-      </header>
+    <div className="max-w-6xl mx-auto gap-12 flex flex-col">
+      <HeroSection />
 
+      <TechStack />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
         {cards.map((card, index) => (
           <div
