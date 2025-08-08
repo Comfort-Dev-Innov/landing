@@ -3,23 +3,26 @@
 import Image from 'next/image';
 import React from 'react';
 import { motion } from 'motion/react';
+import { StaticAuroraBackground } from '../ui/aurora-background';
 
 export default function TechStack() {
   return (
-    <div className="bg-white/20 backdrop-blur-lg rounded-3xl p-8 border border-white/30">
-      <motion.p
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-        className="text-4xl font-nunito font-bold text-white/90 text-shadow-lg my-4 mx-auto w-full flex items-center justify-center"
-      >
-        Tech Stack
-      </motion.p>
-      <p className="text-white/90 font-nunito text-center mb-4 text-lg text-shadow-md">
-        These are the following technologies we use to build our projects at
-        comfort.
+    <StaticAuroraBackground>
+    <div id="tech-stack" className="flex flex-col gap-8 w-full xl:w-6xl mx-auto bg-white/20 backdrop-blur-lg rounded-3xl py-32 border border-white/30">
+    <div className="flex flex-col gap-2">
+    <motion.div 
+                className="flex w-full justify-center drop-shadow-2xl"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+            >
+                <h1 className="flex uppercase text-xl tracking-[0.5em] min-[330px]:tracking-[0.8em] font-bold text-white drop-shadow-lg">Tech Stack</h1>
+            </motion.div>
+      <p className="text-white text-center text-lg text-shadow-md">
+        These are the following technologies we use to build projects at comfort.
       </p>
+      </div>
       <div className="w-full flex flex-col gap-8">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -39,5 +42,6 @@ export default function TechStack() {
         </motion.div>
       </div>
     </div>
+    </StaticAuroraBackground>
   );
 }

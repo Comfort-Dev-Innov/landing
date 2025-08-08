@@ -1,9 +1,30 @@
 'use client';
-import React from 'react';
-import Image from 'next/image';
+import React, { useState, useRef } from 'react';
 import { motion } from 'motion/react';
+import { MoveRight } from 'lucide-react';
 
 export default function HeroSection() {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(true);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (sectionRef.current) {
+      const rect = sectionRef.current.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      setMousePosition({ x, y });
+    }
+  };
+
+  const handleMouseEnter = () => {
+    setIsHovering(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+  };
+
   const features = [
     {
       name: 'Trusted',
@@ -59,92 +80,124 @@ export default function HeroSection() {
   ];
 
   return (
-    <motion.div
-      initial={{ opacity: 0, backgroundColor: 'rgba(203,203,203,1)' }}
-      whileInView={{ opacity: 1, backgroundColor: 'rgba(203,203,203,0.3)' }}
-      transition={{ duration: 1.5 }}
-      viewport={{ once: true }}
-      className="flex backdrop-blur-lg w-full rounded-3xl p-8 border border-white/30"
+    <div
+      ref={sectionRef}
+      id="hero"
+      className="relative flex w-full h-screen overflow-hidden"
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
-      <motion.section
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-      >
-        <div className="max-w-screen-xl mx-auto px-4 py-28 gap-12 text-gray-600 md:px-8 xl:flex">
-          <div className="space-y-5 max-w-2xl mx-auto text-center xl:text-left">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="flex flex-wrap items-center justify-center gap-6 xl:justify-start"
-            >
-              {features.map((item, idx) => (
+      {isHovering && (
+        <div
+          className="absolute inset-0 pointer-events-none transition-opacity duration-300"
+          style={{
+            background: `radial-gradient(circle 500px at ${mousePosition.x}px ${mousePosition.y}px, rgba(255, 255, 255, 0.4) 0%, transparent 60%)`,
+            zIndex: 1,
+          }}
+        />
+      )}
+      
+      <section className="relative z-10 flex flex-col justify-center items-center gap-16 xl:w-6xl mx-auto mt-12">
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="text-xl min-[530px]:text-5xl md:text-6xl min-[1000px]:!text-8xl px-2 min-[1000px]:!px-0 leading-20 min-[530px]:leading-26 min-[768px]:leading-30 min-[1000px]:leading-35 font-extrabold mx-auto text-center drop-shadow-lg text-white"
+        >
+          Development made{' '}
+          <span className="relative inline-block px-6">
+            <span className="absolute inset-0 px-6 bg-primary transform translate-y-1 -rotate-2 overflow-visible">
+              <svg
+                className="absolute inset-0 w-full h-full pointer-events-none"
+                style={{ overflow: 'visible' }}
+              >
+                <rect
+                  x="2"
+                  y="2"
+                  width="calc(100% - 4px)"
+                  height="calc(100% - 4px)"
+                  fill="none"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeDasharray="5,5"
+                  className="animate-marching-ants"
+                  rx="4"
+                />
+              </svg>
+            </span>
+            <span className="relative z-10 drop-shadow-lg px-2 py-1">comfortable</span>
+          </span>
+          .
+        </motion.h1>
+        <div className="flex flex-col items-center gap-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="flex flex-wrap items-center justify-center gap-6 xl:justify-start"
+          >
+            {features.map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                whileHover={{ 
+                  scale: 1.05, 
+                  y: -5,
+                  transition: { duration: 0.2 }
+                }}
+                transition={{ 
+                  duration: 0.4, 
+                  delay: 0.4 + (idx * 0.1),
+                  type: "spring",
+                  stiffness: 100
+                }}
+                viewport={{ once: true }}
+                className="bg-tertiary rounded-full px-4 py-2 font-inter font-light flex items-center gap-x-1 text-white cursor-pointer shadow-lg hover:shadow-xl transition-shadow duration-200"
+              >
                 <motion.div
-                  key={idx}
-                  className="flex items-center gap-x-2 text-white text-sm"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.6 }}
                 >
                   {item.icon}
-                  {item.name}
                 </motion.div>
-              ))}
-            </motion.div>
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="text-4xl font-extrabold mx-auto md:text-5xl text-white"
-            >
-              Development made comfortable.
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              viewport={{ once: true }}
-              className="max-w-xl mx-auto xl:mx-0 text-white"
-            >
-              Empowering startups and enterprises with custom software
-              solutions, on time, on budget, and without the stress.
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.7 }}
-              viewport={{ once: true }}
-              className="items-center justify-center gap-x-3 space-y-3 sm:flex sm:space-y-0 xl:justify-start"
-            >
-              <button
-                onClick={() =>
-                  (window.location.href =
-                    process.env.NEXT_PUBLIC_CALENDLY || '')
-                }
-                className="bg-primary/50 hover:bg-primary/80 backdrop-blur-lg rounded-full px-6 py-2 border border-white/50 cursor-pointer text-white text-sm font-medium transition-all duration-200 hover:scale-105 whitespace-nowrap"
-              >
-                Talk to our Team
-              </button>
-            </motion.div>
-          </div>
-          <motion.div
+                <span className="drop-shadow-lg">{item.name}</span>
+              </motion.div>
+            ))}
+          </motion.div>
+          <motion.p
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.8 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
             viewport={{ once: true }}
-            className="flex-1 max-w-xl mx-auto mt-14 xl:mt-0"
+            className="font-semibold text-center text-2xl text-white"
           >
-            <Image
-              className="rounded-lg shadow-lg"
-              src="/images/pexels-olia-danilevich-4974914.jpg"
-              alt="Hero Image"
-              width={1920}
-              height={1080}
-            />
-          </motion.div>
+            Empowering startups and enterprises with custom software <br />
+            solutions, on time, on budget, and without the stress.
+          </motion.p>
         </div>
-      </motion.section>
-    </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
+          viewport={{ once: true }}
+          className="items-center justify-center gap-x-3 space-y-3 sm:flex sm:space-y-0 xl:justify-start"
+        >
+          <button
+            onClick={() =>
+            (window.location.href =
+              process.env.NEXT_PUBLIC_CALENDLY || '')
+            }
+            className="flex gap-2 items-center bg-primary hover:bg-primary/80 backdrop-blur-lg rounded-full px-6 py-2 border border-white/50 cursor-pointer text-white text-lg font-medium transition-all duration-200 hover:scale-105 whitespace-nowrap"
+          >
+            Talk to our Team!
+            <MoveRight className="w-8 h-8" />
+          </button>
+        </motion.div>
+      </section>
+    </div>
   );
 }
