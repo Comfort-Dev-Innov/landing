@@ -104,7 +104,7 @@ export default function HeroSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
           viewport={{ once: true }}
-          className="text-2xl min-[1000px]:text-4xl leading-35 font-extrabold mx-auto md:text-8xl text-center drop-shadow-lg text-white"
+          className="text-6xl min-[1000px]:text-8xl leading-30 min-[1000px]:leading-35 font-extrabold mx-auto text-center drop-shadow-lg text-white"
         >
           Development made{' '}
           <span className="relative inline-block px-6">
