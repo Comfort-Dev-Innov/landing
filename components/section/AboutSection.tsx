@@ -57,7 +57,7 @@ const AboutSection = () => {
     return (
         <motion.section 
             id="about" 
-            className="w-full h-screen flex flex-col gap-12 sm:gap-16 justify-center items-center bg-white backdrop-blur-lg border border-white/50"
+            className="w-full h-screen flex flex-col pt-12 sm:pt-0 gap-12 sm:gap-16 justify-center items-center bg-white backdrop-blur-lg border border-white/50"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
