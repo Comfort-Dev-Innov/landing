@@ -1,9 +1,30 @@
 'use client';
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'motion/react';
 import { MoveRight } from 'lucide-react';
 
 export default function HeroSection() {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(true);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (sectionRef.current) {
+      const rect = sectionRef.current.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      setMousePosition({ x, y });
+    }
+  };
+
+  const handleMouseEnter = () => {
+    setIsHovering(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+  };
+
   const features = [
     {
       name: 'Trusted',
@@ -60,16 +81,30 @@ export default function HeroSection() {
 
   return (
     <div
+      ref={sectionRef}
       id="hero"
-      className="flex w-full h-screen"
+      className="relative flex w-full h-screen overflow-hidden"
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
-      <section className="flex flex-col justify-center items-center gap-16 xl:w-6xl mx-auto mt-12">
+      {isHovering && (
+        <div
+          className="absolute inset-0 pointer-events-none transition-opacity duration-300"
+          style={{
+            background: `radial-gradient(circle 500px at ${mousePosition.x}px ${mousePosition.y}px, rgba(255, 255, 255, 0.4) 0%, transparent 60%)`,
+            zIndex: 1,
+          }}
+        />
+      )}
+      
+      <section className="relative z-10 flex flex-col justify-center items-center gap-16 xl:w-6xl mx-auto mt-12">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
           viewport={{ once: true }}
-          className="text-4xl leading-35 font-extrabold mx-auto md:text-8xl text-center drop-shadow-lg text-white"
+          className="text-2xl min-[1000px]:text-4xl leading-35 font-extrabold mx-auto md:text-8xl text-center drop-shadow-lg text-white"
         >
           Development made{' '}
           <span className="relative inline-block px-6">
@@ -97,19 +132,42 @@ export default function HeroSection() {
           .
         </motion.h1>
         <div className="flex flex-col items-center gap-4">
-          <div
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
             className="flex flex-wrap items-center justify-center gap-6 xl:justify-start"
           >
             {features.map((item, idx) => (
               <motion.div
                 key={idx}
-                className="bg-tertiary rounded-full px-4 py-2 font-inter font-light flex items-center gap-x-1 text-white"
+                initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                whileHover={{ 
+                  scale: 1.05, 
+                  y: -5,
+                  transition: { duration: 0.2 }
+                }}
+                transition={{ 
+                  duration: 0.4, 
+                  delay: 0.4 + (idx * 0.1),
+                  type: "spring",
+                  stiffness: 100
+                }}
+                viewport={{ once: true }}
+                className="bg-tertiary rounded-full px-4 py-2 font-inter font-light flex items-center gap-x-1 text-white cursor-pointer shadow-lg hover:shadow-xl transition-shadow duration-200"
               >
-                {item.icon}
+                <motion.div
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  {item.icon}
+                </motion.div>
                 <span className="drop-shadow-lg">{item.name}</span>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}

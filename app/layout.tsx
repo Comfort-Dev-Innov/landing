@@ -4,6 +4,7 @@ import { Nunito, Inter } from 'next/font/google';
 import Header from '@/components/ui/header';
 import { AuroraBackground } from '@/components/ui/aurora-background';
 import HeroSection from '@/components/section/HeroSection';
+import { StaticAuroraBackground } from '@/components/ui/aurora-background';
 
 const nunito_sans = Nunito({
   style: ['normal', 'italic'],
@@ -42,12 +43,13 @@ export default function RootLayout({
         className={`${nunito_sans.variable} ${inter.variable} ${nunito_sans.className} antialiased`}
       >
         {isPowerSavingEnabled ? (
-          <div
-            className={`h-full flex py-4 flex-col w-full items-center justify-start bg-gradient-to-br from-primary to-tertiary`}
-          >
-            <Header />
-            <div className="gap-12 flex flex-col mt-24 w-full">{children}</div>
-          </div>
+          <>
+            <StaticAuroraBackground>
+              <Header />
+              <HeroSection />
+            </StaticAuroraBackground>
+            <div className="flex flex-col w-full">{children}</div>
+          </>
         ) : (
           <>
             <AuroraBackground
