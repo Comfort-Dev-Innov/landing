@@ -28,12 +28,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Debug: Check what value we're getting
+  const powerSaving = process.env.NEXT_PUBLIC_POWERSAVING;
+  console.log('Power saving env var:', powerSaving);
+  console.log('Is power saving enabled:', powerSaving === 'true');
+
+  const isPowerSavingEnabled = powerSaving === 'true';
+
   return (
     <html lang="en">
       <body
         className={`${nunito_sans.variable} ${inter.variable} ${nunito_sans.className} antialiased`}
       >
-        {process.env.NEXT_PUBLIC_POWERSAVING === 'true' ? (
+        {isPowerSavingEnabled ? (
           <div
             className={`h-full flex py-4 flex-col w-full items-center justify-start bg-gradient-to-br from-primary to-tertiary`}
           >

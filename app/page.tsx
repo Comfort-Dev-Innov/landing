@@ -1,5 +1,4 @@
 import React from 'react';
-import { AuroraBackground } from '@/components/ui/aurora-background';
 import TechStack from '@/components/section/TechStackSection';
 import HeroSection from '@/components/section/HeroSection';
 import AboutSection from '@/components/section/AboutSection';
