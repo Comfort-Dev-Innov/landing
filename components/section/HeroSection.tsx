@@ -104,11 +104,11 @@ export default function HeroSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
           viewport={{ once: true }}
-          className="text-xl min-[530px]:text-5xl md:text-6xl min-[1000px]:!text-8xl px-2 min-[1000px]:!px-0 leading-20 min-[530px]:leading-26 min-[768px]:leading-30 min-[1000px]:leading-35 font-extrabold mx-auto text-center drop-shadow-lg text-white"
+          className="text-3xl min-[530px]:text-5xl md:text-6xl min-[1000px]:!text-8xl px-2 min-[1000px]:!px-0 leading-16 min-[530px]:leading-26 min-[768px]:leading-30 min-[1000px]:leading-35 font-extrabold mx-auto text-center drop-shadow-lg text-white"
         >
           Development made{' '}
-          <span className="relative inline-block px-6">
-            <span className="absolute inset-0 px-6 bg-primary transform translate-y-1 -rotate-2 overflow-visible">
+          <span className="relative inline-block px-2 min-[530px]:px-6">
+            <span className="absolute inset-0 px-2 min-[530px]:px-6 bg-primary transform min-[530px]:translate-y-1 -rotate-2 overflow-visible">
               <svg
                 className="absolute inset-0 w-full h-full pointer-events-none"
                 style={{ overflow: 'visible' }}
@@ -129,7 +129,6 @@ export default function HeroSection() {
             </span>
             <span className="relative z-10 drop-shadow-lg px-2 py-1">comfortable</span>
           </span>
-          .
         </motion.h1>
         <div className="flex flex-col items-center gap-4">
           <motion.div
@@ -137,7 +136,7 @@ export default function HeroSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
-            className="flex flex-wrap items-center justify-center gap-6 xl:justify-start"
+            className="flex flex-wrap items-center justify-center gap-4 min-[530px]:gap-6 xl:justify-start"
           >
             {features.map((item, idx) => (
               <motion.div
@@ -156,7 +155,7 @@ export default function HeroSection() {
                   stiffness: 100
                 }}
                 viewport={{ once: true }}
-                className="bg-tertiary rounded-full px-4 py-2 font-inter font-light flex items-center gap-x-1 text-white cursor-pointer shadow-lg hover:shadow-xl transition-shadow duration-200"
+                className="bg-tertiary rounded-full px-4 py-2 font-inter font-light text-sm min-[530px]:text-base flex items-center gap-x-1 text-white cursor-pointer shadow-lg hover:shadow-xl transition-shadow duration-200"
               >
                 <motion.div
                   whileHover={{ rotate: 360 }}
@@ -173,9 +172,9 @@ export default function HeroSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
             viewport={{ once: true }}
-            className="font-semibold text-center text-2xl text-white"
+            className="font-semibold px-2 min-[530px]:px-0 text-center text-lg min-[530px]:text-2xl text-white"
           >
-            Empowering startups and enterprises with custom software <br />
+            Empowering startups and enterprises with custom software <br className="hidden md:block"/>
             solutions, on time, on budget, and without the stress.
           </motion.p>
         </div>
@@ -191,7 +190,7 @@ export default function HeroSection() {
             (window.location.href =
               process.env.NEXT_PUBLIC_CALENDLY || '')
             }
-            className="flex gap-2 items-center bg-primary hover:bg-primary/80 backdrop-blur-lg rounded-full px-6 py-2 border border-white/50 cursor-pointer text-white text-lg font-medium transition-all duration-200 hover:scale-105 whitespace-nowrap"
+            className="flex gap-2 items-center bg-primary hover:bg-primary/80 backdrop-blur-lg rounded-full px-6 py-2 border border-white/50 cursor-pointer text-white text-base min-[530px]:text-lg font-medium transition-all duration-200 hover:scale-105 whitespace-nowrap"
           >
             Talk to our Team!
             <MoveRight className="w-8 h-8" />

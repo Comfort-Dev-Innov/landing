@@ -53,7 +53,7 @@ const ServicesSection = () => {
     return (
         <motion.section
             id="services"
-            className="w-full min-h-screen flex flex-col gap-12 sm:gap-16 justify-center items-center bg-white backdrop-blur-lg border border-white/50 pb-20"
+            className="w-full min-h-screen flex flex-col gap-12 sm:gap-16 justify-center items-center bg-white backdrop-blur-lg border border-white/50 pb-26 sm:pb-20"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
