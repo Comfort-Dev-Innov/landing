@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { Nunito } from 'next/font/google';
+import { Nunito, Inter } from 'next/font/google';
 import Header from '@/components/ui/header';
 import { AuroraBackground } from '@/components/ui/aurora-background';
 
@@ -9,6 +9,12 @@ const nunito_sans = Nunito({
   subsets: ['latin'],
   variable: '--font-nunito',
   weight: ['200', '300', '400', '500', '600', '700', '800', '900', '1000'],
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
 });
 
 export const metadata: Metadata = {
@@ -25,9 +31,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${nunito_sans.variable} ${nunito_sans.className} antialiased`}
+        className={`${nunito_sans.variable} ${inter.variable} ${nunito_sans.className} antialiased`}
       >
-        {process.env.NEXT_PUBLIC_POWERSAVING ? (
+        {process.env.NEXT_PUBLIC_POWERSAVING === 'true' ? (
           <div
             className={`h-full flex py-4 flex-col w-full items-center justify-start bg-gradient-to-br from-primary to-tertiary`}
           >
@@ -40,7 +46,7 @@ export default function RootLayout({
             className={`h-full flex py-4 flex-col w-full items-center justify-start`}
           >
             <Header />
-            <div className="gap-12 flex flex-col mt-24 w-full">{children}</div>
+            <div className="flex flex-col mt-32 w-full">{children}</div>
           </AuroraBackground>
         )}
       </body>

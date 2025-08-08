@@ -6,7 +6,7 @@ import { motion } from 'motion/react';
 
 export default function TechStack() {
   return (
-    <div className="bg-white/20 backdrop-blur-lg rounded-3xl p-8 border border-white/30">
+    <div id="tech-stack" className="bg-white/20 backdrop-blur-lg rounded-3xl p-8 border border-white/30">
       <motion.p
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}

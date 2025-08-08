@@ -60,11 +60,12 @@ export default function HeroSection() {
 
   return (
     <motion.div
+      id="hero"
       initial={{ opacity: 0, backgroundColor: 'rgba(203,203,203,1)' }}
       whileInView={{ opacity: 1, backgroundColor: 'rgba(203,203,203,0.3)' }}
       transition={{ duration: 1.5 }}
       viewport={{ once: true }}
-      className="flex backdrop-blur-lg w-full rounded-3xl p-8 border border-white/30"
+      className="flex backdrop-blur-lg w-full h-screen rounded-3xl p-8 border border-white/30"
     >
       <motion.section
         initial={{ opacity: 0, y: 10 }}

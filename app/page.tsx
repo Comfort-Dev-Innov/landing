@@ -2,6 +2,7 @@ import React from 'react';
 import { AuroraBackground } from '@/components/ui/aurora-background';
 import TechStack from '@/components/section/TechStackSection';
 import HeroSection from '@/components/section/HeroSection';
+import AboutSection from '@/components/section/AboutSection';
 
 const ComfortCardPreview = () => {
   const cards = [
@@ -29,11 +30,11 @@ const ComfortCardPreview = () => {
   ];
 
   return (
-    <div className="max-w-6xl mx-auto gap-12 flex flex-col">
+    <div className="flex flex-col">
       <HeroSection />
-
+      <AboutSection />
       <TechStack />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+      {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
         {cards.map((card, index) => (
           <div
             key={index}
@@ -73,167 +74,8 @@ const ComfortCardPreview = () => {
             <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-white/50 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
           </div>
         ))}
-      </div>
+      </div> */}
 
-      <div className="bg-white/20 backdrop-blur-lg rounded-3xl p-8 border border-white/30">
-        <h2 className="text-3xl font-bold text-white mb-6 text-center">
-          Color Palette Preview
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div className="text-center">
-            <div
-              className="w-20 h-20 rounded-full mx-auto mb-3 shadow-lg border-4 border-white/30"
-              style={{ backgroundColor: '#29b3ff' }}
-            />
-            <p className="text-white font-semibold">Primary</p>
-            <p className="text-white/70 text-sm">#29b3ff</p>
-          </div>
-          <div className="text-center">
-            <div
-              className="w-20 h-20 rounded-full mx-auto mb-3 shadow-lg border-4 border-white/30"
-              style={{ backgroundColor: '#81eaff' }}
-            />
-            <p className="text-white font-semibold">Secondary</p>
-            <p className="text-white/70 text-sm">#81eaff</p>
-          </div>
-          <div className="text-center">
-            <div
-              className="w-20 h-20 rounded-full mx-auto mb-3 shadow-lg border-4 border-white/30"
-              style={{ backgroundColor: '#fbc00e' }}
-            />
-            <p className="text-white font-semibold">Tertiary</p>
-            <p className="text-white/70 text-sm">#fbc00e</p>
-          </div>
-          <div className="text-center">
-            <div
-              className="w-20 h-20 rounded-full mx-auto mb-3 shadow-lg border-4 border-white/30"
-              style={{ backgroundColor: '#ffd774' }}
-            />
-            <p className="text-white font-semibold">Quaternary</p>
-            <p className="text-white/70 text-sm">#ffd774</p>
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-white/20 backdrop-blur-lg rounded-3xl p-8 border border-white/30">
-        <h2 className="text-3xl font-bold text-white mb-6 text-center">
-          Color Palette Preview
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div className="text-center">
-            <div
-              className="w-20 h-20 rounded-full mx-auto mb-3 shadow-lg border-4 border-white/30"
-              style={{ backgroundColor: '#29b3ff' }}
-            />
-            <p className="text-white font-semibold">Primary</p>
-            <p className="text-white/70 text-sm">#29b3ff</p>
-          </div>
-          <div className="text-center">
-            <div
-              className="w-20 h-20 rounded-full mx-auto mb-3 shadow-lg border-4 border-white/30"
-              style={{ backgroundColor: '#81eaff' }}
-            />
-            <p className="text-white font-semibold">Secondary</p>
-            <p className="text-white/70 text-sm">#81eaff</p>
-          </div>
-          <div className="text-center">
-            <div
-              className="w-20 h-20 rounded-full mx-auto mb-3 shadow-lg border-4 border-white/30"
-              style={{ backgroundColor: '#fbc00e' }}
-            />
-            <p className="text-white font-semibold">Tertiary</p>
-            <p className="text-white/70 text-sm">#fbc00e</p>
-          </div>
-          <div className="text-center">
-            <div
-              className="w-20 h-20 rounded-full mx-auto mb-3 shadow-lg border-4 border-white/30"
-              style={{ backgroundColor: '#ffd774' }}
-            />
-            <p className="text-white font-semibold">Quaternary</p>
-            <p className="text-white/70 text-sm">#ffd774</p>
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-white/20 backdrop-blur-lg rounded-3xl p-8 border border-white/30">
-        <h2 className="text-3xl font-bold text-white mb-6 text-center">
-          Color Palette Preview
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div className="text-center">
-            <div
-              className="w-20 h-20 rounded-full mx-auto mb-3 shadow-lg border-4 border-white/30"
-              style={{ backgroundColor: '#29b3ff' }}
-            />
-            <p className="text-white font-semibold">Primary</p>
-            <p className="text-white/70 text-sm">#29b3ff</p>
-          </div>
-          <div className="text-center">
-            <div
-              className="w-20 h-20 rounded-full mx-auto mb-3 shadow-lg border-4 border-white/30"
-              style={{ backgroundColor: '#81eaff' }}
-            />
-            <p className="text-white font-semibold">Secondary</p>
-            <p className="text-white/70 text-sm">#81eaff</p>
-          </div>
-          <div className="text-center">
-            <div
-              className="w-20 h-20 rounded-full mx-auto mb-3 shadow-lg border-4 border-white/30"
-              style={{ backgroundColor: '#fbc00e' }}
-            />
-            <p className="text-white font-semibold">Tertiary</p>
-            <p className="text-white/70 text-sm">#fbc00e</p>
-          </div>
-          <div className="text-center">
-            <div
-              className="w-20 h-20 rounded-full mx-auto mb-3 shadow-lg border-4 border-white/30"
-              style={{ backgroundColor: '#ffd774' }}
-            />
-            <p className="text-white font-semibold">Quaternary</p>
-            <p className="text-white/70 text-sm">#ffd774</p>
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-white/20 backdrop-blur-lg rounded-3xl p-8 border border-white/30">
-        <h2 className="text-3xl font-bold text-white mb-6 text-center">
-          Color Palette Preview
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div className="text-center">
-            <div
-              className="w-20 h-20 rounded-full mx-auto mb-3 shadow-lg border-4 border-white/30"
-              style={{ backgroundColor: '#29b3ff' }}
-            />
-            <p className="text-white font-semibold">Primary</p>
-            <p className="text-white/70 text-sm">#29b3ff</p>
-          </div>
-          <div className="text-center">
-            <div
-              className="w-20 h-20 rounded-full mx-auto mb-3 shadow-lg border-4 border-white/30"
-              style={{ backgroundColor: '#81eaff' }}
-            />
-            <p className="text-white font-semibold">Secondary</p>
-            <p className="text-white/70 text-sm">#81eaff</p>
-          </div>
-          <div className="text-center">
-            <div
-              className="w-20 h-20 rounded-full mx-auto mb-3 shadow-lg border-4 border-white/30"
-              style={{ backgroundColor: '#fbc00e' }}
-            />
-            <p className="text-white font-semibold">Tertiary</p>
-            <p className="text-white/70 text-sm">#fbc00e</p>
-          </div>
-          <div className="text-center">
-            <div
-              className="w-20 h-20 rounded-full mx-auto mb-3 shadow-lg border-4 border-white/30"
-              style={{ backgroundColor: '#ffd774' }}
-            />
-            <p className="text-white font-semibold">Quaternary</p>
-            <p className="text-white/70 text-sm">#ffd774</p>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };

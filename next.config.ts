@@ -11,6 +11,7 @@ const nextConfig: NextConfig = {
     extend: {
       fontFamily: {
         'nunito-sans': ['var(--font-nunito-sans)', 'sans-serif'],
+        'inter': ['var(--font-inter)', 'sans-serif'],
       },
     },
   },
