@@ -76,6 +76,7 @@ export default function Header() {
   const getBackgroundColor = () => {
     switch (currentSection) {
       case 'about':
+      case 'services':
         return 'bg-black/30 backdrop-blur-lg border-white/30';
       case 'hero':
       case 'tech-stack':
@@ -122,7 +123,7 @@ export default function Header() {
           transition-all duration-500
         `}
         >
-          <div className="flex items-center gap-2 cursor-pointer">
+          <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.location.href = '#about'}>
             <span
               className={`
                 ${getTextColor()} ${getHoverColor()} font-semibold tracking-wide lg:tracking-widest drop-shadow-lg whitespace-nowrap transition-all duration-500 
@@ -135,7 +136,7 @@ export default function Header() {
 
           <div className={`w-px h-6 bg-white/50`} />
 
-          <div className="flex items-center gap-2 cursor-pointer">
+          <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.location.href = '#services'}>
             <span
               className={`
                 ${getTextColor()} ${getHoverColor()} font-semibold tracking-wide lg:tracking-widest drop-shadow-lg whitespace-nowrap transition-all duration-500 

@@ -5,6 +5,7 @@ import Header from '@/components/ui/header';
 import { AuroraBackground } from '@/components/ui/aurora-background';
 import HeroSection from '@/components/section/HeroSection';
 import { StaticAuroraBackground } from '@/components/ui/aurora-background';
+import ScrollArrow from '@/components/ui/scroll-arrow';
 
 const nunito_sans = Nunito({
   style: ['normal', 'italic'],
@@ -49,6 +50,7 @@ export default function RootLayout({
               <HeroSection />
             </StaticAuroraBackground>
             <div className="flex flex-col w-full">{children}</div>
+            <ScrollArrow />
           </>
         ) : (
           <>
@@ -60,6 +62,7 @@ export default function RootLayout({
               <HeroSection />
             </AuroraBackground>
             <div className="flex flex-col w-full">{children}</div>
+            <ScrollArrow />
           </>
         )}
       </body>
