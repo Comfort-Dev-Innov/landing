@@ -93,7 +93,7 @@ export default function Header() {
         className={`
           ${!isScrolled
             ? 'w-full mx-auto py-2 px-4 lg:px-8 justify-between'
-            : 'w-[60%] mx-auto px-2 lg:px-4 py-2 justify-between'
+            : 'w-[60%] mx-auto px-2 lg:px-4 py-2 justify-between hidden md:flex'
           }
           flex items-center gap-4 ${getBackgroundColor()} rounded-full border
           transition-all duration-700 ease-out
