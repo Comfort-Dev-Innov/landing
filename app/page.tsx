@@ -30,7 +30,6 @@ const ComfortCardPreview = () => {
 
   return (
     <div className="flex flex-col">
-      <HeroSection />
       <AboutSection />
       <TechStack />
       {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">

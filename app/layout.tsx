@@ -3,6 +3,7 @@ import './globals.css';
 import { Nunito, Inter } from 'next/font/google';
 import Header from '@/components/ui/header';
 import { AuroraBackground } from '@/components/ui/aurora-background';
+import HeroSection from '@/components/section/HeroSection';
 
 const nunito_sans = Nunito({
   style: ['normal', 'italic'],
@@ -48,15 +49,18 @@ export default function RootLayout({
             <div className="gap-12 flex flex-col mt-24 w-full">{children}</div>
           </div>
         ) : (
-          <AuroraBackground
-            showRadialGradient={true}
-            className={`h-full flex py-4 flex-col w-full items-center justify-start`}
-          >
-            <Header />
-            <div className="flex flex-col mt-32 w-full">{children}</div>
-          </AuroraBackground>
+          <>
+            <AuroraBackground
+              showRadialGradient={true}
+              className="h-full flex py-4 flex-col w-full items-center justify-start"
+            >
+              <Header />
+              <HeroSection />
+            </AuroraBackground>
+            <div className="flex flex-col w-full">{children}</div>
+          </>
         )}
       </body>
-    </html>
+    </html >
   );
 }
