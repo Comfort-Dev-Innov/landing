@@ -1,36 +1,37 @@
 import React from 'react';
 import TechStack from '@/components/section/TechStackSection';
-import HeroSection from '@/components/section/HeroSection';
 import AboutSection from '@/components/section/AboutSection';
+import ServicesSection from '@/components/section/ServicesSection';
 
 const ComfortCardPreview = () => {
-  const cards = [
-    {
-      title: 'Liquid Design System',
-      description:
-        'Flowing, organic interfaces that adapt naturally to user needs',
-      icon: '💧',
-      gradient: 'from-primary to-secondary',
-    },
-    {
-      title: 'Comfort-First UX',
-      description:
-        'Every interaction designed to feel effortless and intuitive',
-      icon: '🛋️',
-      gradient: 'from-tertiary to-quaternary',
-    },
-    {
-      title: 'Adaptive Technology',
-      description:
-        'Smart solutions that learn and evolve with your preferences',
-      icon: '🌊',
-      gradient: 'from-secondary via-primary to-tertiary',
-    },
-  ];
+  // const cards = [
+  //   {
+  //     title: 'Liquid Design System',
+  //     description:
+  //       'Flowing, organic interfaces that adapt naturally to user needs',
+  //     icon: '💧',
+  //     gradient: 'from-primary to-secondary',
+  //   },
+  //   {
+  //     title: 'Comfort-First UX',
+  //     description:
+  //       'Every interaction designed to feel effortless and intuitive',
+  //     icon: '🛋️',
+  //     gradient: 'from-tertiary to-quaternary',
+  //   },
+  //   {
+  //     title: 'Adaptive Technology',
+  //     description:
+  //       'Smart solutions that learn and evolve with your preferences',
+  //     icon: '🌊',
+  //     gradient: 'from-secondary via-primary to-tertiary',
+  //   },
+  // ];
 
   return (
     <div className="flex flex-col">
       <AboutSection />
+      <ServicesSection/>
       <TechStack />
       {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
         {cards.map((card, index) => (
