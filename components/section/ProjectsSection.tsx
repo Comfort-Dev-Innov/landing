@@ -123,14 +123,40 @@ export default function ProjectsSection() {
       transition={{ duration: 0.8, ease: 'easeOut' }}
       viewport={{ once: true }}
     >
-      <h1 className="flex uppercase text-xl tracking-[0.5em] min-[330px]:tracking-[0.8em] font-bold text-primary">
-        Projects
-      </h1>
+      <div className="flex flex-col gap-4 items-center justify-center">
+        <h1 className="flex uppercase text-xl tracking-[0.5em] min-[330px]:tracking-[0.8em] font-bold text-primary">
+          Projects
+        </h1>
+        <p className="text-center text-black">
+          Here are some of the projects{' '}
+          <span className="font-bold text-primary">Comfort Dev</span> has worked
+          on.
+        </p>
+      </div>
       <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-8 py-8 px-4 md:px-16 w-full justify-center items-center">
         {projects.map((project, index) => (
           <ProjectCard key={index} {...project} />
         ))}
       </motion.div>
+
+      <div className="flex flex-col gap-4">
+        <p className="text-center text-lg text-black max-w-2xl">
+          Do you want your next vision to be come to life? <br />
+          <span className="font-bold text-primary text-2xl">
+            Comfort Dev
+          </span>{' '}
+          is here to make it real with comfort.
+        </p>
+
+        <button
+          onClick={() =>
+            (window.location.href = process.env.NEXT_PUBLIC_CALENDLY || '')
+          }
+          className="w-fit mx-auto hover:bg-primary/80 cursor-pointer transition-all duration-300 bg-primary text-white px-4 py-2 rounded-md"
+        >
+          Schedule a free call
+        </button>
+      </div>
     </motion.section>
   );
 }
