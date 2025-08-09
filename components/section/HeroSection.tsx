@@ -97,7 +97,7 @@ export default function HeroSection() {
           }}
         />
       )}
-      
+
       <section className="relative z-10 flex flex-col justify-center items-center gap-16 xl:w-6xl mx-auto mt-12">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -108,7 +108,7 @@ export default function HeroSection() {
         >
           Development made{' '}
           <span className="relative inline-block px-2 min-[530px]:px-6">
-            <span className="absolute inset-0 px-2 min-[530px]:px-6 bg-primary transform min-[530px]:translate-y-1 -rotate-2 overflow-visible">
+            <span className="rounded-sm absolute inset-0 px-2 min-[530px]:px-6 bg-primary transform min-[530px]:translate-y-1 -rotate-2 overflow-visible">
               <svg
                 className="absolute inset-0 w-full h-full pointer-events-none"
                 style={{ overflow: 'visible' }}
@@ -127,7 +127,9 @@ export default function HeroSection() {
                 />
               </svg>
             </span>
-            <span className="relative z-10 drop-shadow-lg px-2 py-1">comfortable</span>
+            <span className="relative z-10 drop-shadow-lg px-2 py-1">
+              comfortable
+            </span>
           </span>
         </motion.h1>
         <div className="flex flex-col items-center gap-4">
@@ -143,16 +145,16 @@ export default function HeroSection() {
                 key={idx}
                 initial={{ opacity: 0, scale: 0.8, y: 20 }}
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                whileHover={{ 
-                  scale: 1.05, 
+                whileHover={{
+                  scale: 1.05,
                   y: -5,
-                  transition: { duration: 0.2 }
+                  transition: { duration: 0.2 },
                 }}
-                transition={{ 
-                  duration: 0.4, 
-                  delay: 0.4 + (idx * 0.1),
-                  type: "spring",
-                  stiffness: 100
+                transition={{
+                  duration: 0.4,
+                  delay: 0.4 + idx * 0.1,
+                  type: 'spring',
+                  stiffness: 100,
                 }}
                 viewport={{ once: true }}
                 className="bg-tertiary rounded-full px-4 py-2 font-inter font-light text-sm min-[530px]:text-base flex items-center gap-x-1 text-white cursor-pointer shadow-lg hover:shadow-xl transition-shadow duration-200"
@@ -174,7 +176,8 @@ export default function HeroSection() {
             viewport={{ once: true }}
             className="font-semibold px-2 min-[530px]:px-0 text-center text-lg min-[530px]:text-2xl text-white"
           >
-            Empowering startups and enterprises with custom software <br className="hidden md:block"/>
+            Empowering startups and enterprises with custom software{' '}
+            <br className="hidden md:block" />
             solutions, on time, on budget, and without the stress.
           </motion.p>
         </div>
@@ -187,8 +190,7 @@ export default function HeroSection() {
         >
           <button
             onClick={() =>
-            (window.location.href =
-              process.env.NEXT_PUBLIC_CALENDLY || '')
+              (window.location.href = process.env.NEXT_PUBLIC_CALENDLY || '')
             }
             className="flex gap-2 items-center bg-primary hover:bg-primary/80 backdrop-blur-lg rounded-full px-6 py-2 border border-white/50 cursor-pointer text-white text-base min-[530px]:text-lg font-medium transition-all duration-200 hover:scale-105 whitespace-nowrap"
           >
