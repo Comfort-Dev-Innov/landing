@@ -19,7 +19,7 @@ export default function Header() {
     const observerOptions = {
       root: null,
       rootMargin: '-10% 0px -50% 0px',
-      threshold: [0, 0.25, 0.5, 0.75, 1]
+      threshold: [0, 0.25, 0.5, 0.75, 1],
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -66,8 +66,10 @@ export default function Header() {
     switch (currentSection) {
       case 'about':
         return 'hover:text-primary/80'; // Slightly transparent primary
-      case 'hero':
       case 'tech-stack':
+        return 'hover:text-yellow-300'; // Brighter yilo nyehehe
+      case 'hero':
+      case 'services':
       default:
         return 'hover:text-primary'; // Primary color on hover
     }
@@ -77,9 +79,9 @@ export default function Header() {
     switch (currentSection) {
       case 'about':
       case 'services':
+      case 'tech-stack':
         return 'bg-black/30 backdrop-blur-lg border-white/30';
       case 'hero':
-      case 'tech-stack':
       default:
         return 'bg-white/20 backdrop-blur-lg border-white/30';
     }
@@ -92,9 +94,10 @@ export default function Header() {
     >
       <div
         className={`
-          ${!isScrolled
-            ? 'w-full mx-auto py-2 px-4 lg:px-8 justify-between'
-            : 'w-[60%] mx-auto px-2 lg:px-4 py-2 justify-between hidden md:flex'
+          ${
+            !isScrolled
+              ? 'w-full mx-auto py-2 px-4 lg:px-8 justify-between'
+              : 'w-[60%] mx-auto px-2 lg:px-4 py-2 justify-between hidden md:flex'
           }
           flex items-center gap-4 ${getBackgroundColor()} rounded-full border
           transition-all duration-700 ease-out
@@ -103,15 +106,22 @@ export default function Header() {
         {/* Logo/Brand - show when at top, hide when scrolled */}
         <div
           className={`
-          ${!isScrolled
+          ${
+            !isScrolled
               ? 'opacity-100 translate-x-0 w-auto'
               : 'opacity-0 -translate-x-6 w-0 overflow-hidden'
-            } 
+          } 
           transition-all duration-500 flex items-center gap-2
         `}
         >
           <div className="w-[120px] h-[39px] sm:w-[150px] sm:h-[49px] lg:w-[180px] lg:h-[59px] flex items-center justify-center">
-            <Image src={logo} className="w-full h-full" alt="Comfort Dev" width={180} height={59} />
+            <Image
+              src={logo}
+              className="w-full h-full"
+              alt="Comfort Dev"
+              width={180}
+              height={59}
+            />
           </div>
         </div>
 
@@ -123,11 +133,17 @@ export default function Header() {
           transition-all duration-500
         `}
         >
-          <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.location.href = '#about'}>
+          <div
+            className="flex items-center gap-2 cursor-pointer"
+            onClick={() => (window.location.href = '#about')}
+          >
             <span
               className={`
                 ${getTextColor()} ${getHoverColor()} font-semibold tracking-wide lg:tracking-widest drop-shadow-lg whitespace-nowrap transition-all duration-500 
-                ${!isScrolled ? 'text-md lg:text-lg opacity-100' : 'text-md opacity-90'
+                ${
+                  !isScrolled
+                    ? 'text-md lg:text-lg opacity-100'
+                    : 'text-md opacity-90'
                 }`}
             >
               About Us
@@ -136,11 +152,17 @@ export default function Header() {
 
           <div className={`w-px h-6 bg-white/50`} />
 
-          <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.location.href = '#services'}>
+          <div
+            className="flex items-center gap-2 cursor-pointer"
+            onClick={() => (window.location.href = '#services')}
+          >
             <span
               className={`
                 ${getTextColor()} ${getHoverColor()} font-semibold tracking-wide lg:tracking-widest drop-shadow-lg whitespace-nowrap transition-all duration-500 
-                ${!isScrolled ? 'text-md lg:text-lg opacity-100' : 'text-md opacity-90'
+                ${
+                  !isScrolled
+                    ? 'text-md lg:text-lg opacity-100'
+                    : 'text-md opacity-90'
                 }`}
             >
               Services
@@ -149,11 +171,17 @@ export default function Header() {
 
           <div className={`w-px h-6 bg-white/50`} />
 
-          <div className="flex items-center gap-2 cursor-pointer">
+          <div
+            className="flex items-center gap-2 cursor-pointer"
+            onClick={() => (window.location.href = '#tech-stack')}
+          >
             <span
               className={`
                 ${getTextColor()} ${getHoverColor()} font-semibold tracking-wide lg:tracking-widest drop-shadow-lg whitespace-nowrap transition-all duration-500 
-                ${!isScrolled ? 'text-md lg:text-lg opacity-100' : 'text-md opacity-90'
+                ${
+                  !isScrolled
+                    ? 'text-md lg:text-lg opacity-100'
+                    : 'text-md opacity-90'
                 }`}
             >
               Technologies
@@ -162,11 +190,17 @@ export default function Header() {
 
           <div className={`w-px h-6 bg-white/50`} />
 
-          <div className="flex items-center gap-2 cursor-pointer">
+          <div
+            className="flex items-center gap-2 cursor-pointer"
+            onClick={() => (window.location.href = '#projects')}
+          >
             <span
               className={`
                 ${getTextColor()} ${getHoverColor()} font-semibold tracking-wide lg:tracking-widest drop-shadow-lg whitespace-nowrap transition-all duration-500 
-                ${!isScrolled ? 'text-md lg:text-lg opacity-100' : 'text-md opacity-90'
+                ${
+                  !isScrolled
+                    ? 'text-md lg:text-lg opacity-100'
+                    : 'text-md opacity-90'
                 }`}
             >
               Projects
@@ -177,10 +211,11 @@ export default function Header() {
         {/* CTA Button - show when at top, hide when scrolled */}
         <div
           className={`
-          ${!isScrolled
+          ${
+            !isScrolled
               ? 'opacity-100 translate-x-0 w-auto'
               : 'opacity-0 translate-x-6 w-0 overflow-hidden'
-            } 
+          } 
           transition-all duration-500
         `}
         >
