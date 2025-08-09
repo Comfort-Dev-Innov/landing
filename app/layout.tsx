@@ -2,9 +2,6 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Nunito, Inter } from 'next/font/google';
 import Header from '@/components/ui/header';
-import { AuroraBackground } from '@/components/ui/aurora-background';
-import HeroSection from '@/components/section/HeroSection';
-import { StaticAuroraBackground } from '@/components/ui/aurora-background';
 import ScrollArrow from '@/components/ui/scroll-arrow';
 
 const nunito_sans = Nunito({
@@ -36,36 +33,16 @@ export default function RootLayout({
   console.log('Power saving env var:', powerSaving);
   console.log('Is power saving enabled:', powerSaving === 'true');
 
-  const isPowerSavingEnabled = powerSaving === 'true';
-
   return (
     <html lang="en">
       <body
         className={`${nunito_sans.variable} ${inter.variable} ${nunito_sans.className} antialiased`}
       >
-        {isPowerSavingEnabled ? (
-          <>
-            <StaticAuroraBackground>
-              <Header />
-              <HeroSection />
-            </StaticAuroraBackground>
-            <div className="flex flex-col w-full">{children}</div>
-            <ScrollArrow />
-          </>
-        ) : (
-          <>
-            <AuroraBackground
-              showRadialGradient={true}
-              className="h-full flex py-4 flex-col w-full items-center justify-start"
-            >
-              <Header />
-              <HeroSection />
-            </AuroraBackground>
-            <div className="flex flex-col w-full">{children}</div>
-            <ScrollArrow />
-          </>
-        )}
+        <Header />
+
+        <div className="flex flex-col w-full">{children}</div>
+        <ScrollArrow />
       </body>
-    </html >
+    </html>
   );
 }
