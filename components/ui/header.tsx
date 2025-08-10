@@ -219,7 +219,12 @@ export default function Header() {
           transition-all duration-500
         `}
         >
-          <button className="bg-primary/100 hover:bg-primary/80 backdrop-blur-lg rounded-full px-4 lg:px-6 py-2 border-[2px] shadow-lg border-white/95 cursor-pointer text-white tracking-wide lg:tracking-widest text-xs lg:text-sm font-black transition-all duration-200 hover:scale-105 whitespace-nowrap">
+          <button
+            onClick={() =>
+              (window.location.href = process.env.NEXT_PUBLIC_CALENDLY || '')
+            }
+            className="bg-primary/100 hover:bg-primary/80 backdrop-blur-lg rounded-full px-4 lg:px-6 py-2 border-[2px] shadow-lg border-white/95 cursor-pointer text-white tracking-wide lg:tracking-widest text-xs lg:text-sm font-black transition-all duration-200 hover:scale-105 whitespace-nowrap"
+          >
             Get Started
           </button>
         </div>
