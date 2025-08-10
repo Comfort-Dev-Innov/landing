@@ -25,11 +25,12 @@ export default function ProjectsSection() {
       technologies: [
         'React',
         'ReactNative',
-        'MySQL',
+        'Supabase',
         'OpenAI',
         'CSS',
         'iOS',
         'Android',
+        'Postgres',
       ],
       index: 0,
     },
