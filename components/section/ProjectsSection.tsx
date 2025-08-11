@@ -117,7 +117,7 @@ export default function ProjectsSection() {
   ];
   return (
     <motion.section
-      id="services"
+      id="projects"
       className="w-full h-fit min-h-screen flex py-8 flex-col gap-12 sm:gap-16 justify-center items-center bg-slate-200/40 backdrop-blur-lg border border-white/50 pb-26 sm:pb-20"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
