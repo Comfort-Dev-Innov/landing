@@ -61,59 +61,59 @@ export default function ProjectsSection() {
       ],
       index: 1,
     },
-    {
-      title: 'Go Get Leads',
-      description:
-        'We developed a streamlined lead-generation platform called Go Get Leads, designed exclusively for real estate professionals. The app delivers verified, high-intent homeowner leads—double-confirmed and territory-exclusive—so agents can stop chasing fluff and start closing deals.',
-      images: [
-        '/images/gogetleads-1.png',
-        '/images/gogetleads-2.png',
-        '/images/gogetleads-3.png',
-        '/images/gogetleads-4.png',
-      ],
-      links: [
-        {
-          type: 'live',
-          url: 'https://go-getleads.com',
-          label: 'Go Get Leads',
-        },
-      ],
-      technologies: [
-        'React',
-        'NextJS',
-        'TailwindCSS',
-        'JavaScript(TS)',
-        'Vercel',
-      ],
-      index: 2,
-    },
-    {
-      title: 'NexLead',
-      description:
-        'We developed Nex Lead, a streamlined lead generation platform designed to deliver exclusive, verified, pay-per-lead prospects directly to businesses—no contracts, no fluff. This tool was crafted for immediacy and efficiency, enabling clients to focus on closing deals instead of chasing unqualified leads.',
-      images: [
-        '/images/nextlead-1.png',
-        '/images/nextlead-2.png',
-        '/images/nextlead-3.png',
-        '/images/nextlead-4.png',
-        '/images/nextlead-5.png',
-      ],
-      links: [
-        {
-          type: 'live',
-          url: 'https://nexleads.net',
-          label: 'NexLead',
-        },
-      ],
-      technologies: [
-        'React',
-        'NextJS',
-        'TailwindCSS',
-        'JavaScript(TS)',
-        'Vercel',
-      ],
-      index: 3,
-    },
+    // {
+    //   title: 'Go Get Leads',
+    //   description:
+    //     'We developed a streamlined lead-generation platform called Go Get Leads, designed exclusively for real estate professionals. The app delivers verified, high-intent homeowner leads—double-confirmed and territory-exclusive—so agents can stop chasing fluff and start closing deals.',
+    //   images: [
+    //     '/images/gogetleads-1.png',
+    //     '/images/gogetleads-2.png',
+    //     '/images/gogetleads-3.png',
+    //     '/images/gogetleads-4.png',
+    //   ],
+    //   links: [
+    //     {
+    //       type: 'live',
+    //       url: 'https://go-getleads.com',
+    //       label: 'Go Get Leads',
+    //     },
+    //   ],
+    //   technologies: [
+    //     'React',
+    //     'NextJS',
+    //     'TailwindCSS',
+    //     'JavaScript(TS)',
+    //     'Vercel',
+    //   ],
+    //   index: 2,
+    // },
+    // {
+    //   title: 'NexLead',
+    //   description:
+    //     'We developed Nex Lead, a streamlined lead generation platform designed to deliver exclusive, verified, pay-per-lead prospects directly to businesses—no contracts, no fluff. This tool was crafted for immediacy and efficiency, enabling clients to focus on closing deals instead of chasing unqualified leads.',
+    //   images: [
+    //     '/images/nextlead-1.png',
+    //     '/images/nextlead-2.png',
+    //     '/images/nextlead-3.png',
+    //     '/images/nextlead-4.png',
+    //     '/images/nextlead-5.png',
+    //   ],
+    //   links: [
+    //     {
+    //       type: 'live',
+    //       url: 'https://nexleads.net',
+    //       label: 'NexLead',
+    //     },
+    //   ],
+    //   technologies: [
+    //     'React',
+    //     'NextJS',
+    //     'TailwindCSS',
+    //     'JavaScript(TS)',
+    //     'Vercel',
+    //   ],
+    //   index: 3,
+    // },
   ];
   return (
     <motion.section
