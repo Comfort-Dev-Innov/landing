@@ -2,6 +2,9 @@ import React from 'react';
 import TechStack from '@/components/section/TechStackSection';
 import AboutSection from '@/components/section/AboutSection';
 import ServicesSection from '@/components/section/ServicesSection';
+import HeroSection from '@/components/section/HeroSection';
+import { StaticAuroraBackground } from '@/components/ui/aurora-background';
+import ProjectsSection from '@/components/section/ProjectsSection';
 
 const ComfortCardPreview = () => {
   // const cards = [
@@ -30,9 +33,13 @@ const ComfortCardPreview = () => {
 
   return (
     <div className="flex flex-col">
+      <StaticAuroraBackground>
+        <HeroSection />
+      </StaticAuroraBackground>
       <AboutSection />
-      <ServicesSection/>
+      <ServicesSection />
       <TechStack />
+      <ProjectsSection />
       {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
         {cards.map((card, index) => (
           <div
@@ -74,7 +81,6 @@ const ComfortCardPreview = () => {
           </div>
         ))}
       </div> */}
-
     </div>
   );
 };
