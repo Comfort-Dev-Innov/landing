@@ -1,12 +1,12 @@
+import HeroSection from '@/components/section/HeroSection';
 import React from 'react';
 
-function Home() {
-
+function LandingPage() {
   return (
-    <div className="flex flex-col">
-
-    </div>
+      <>
+      <HeroSection />
+      </>
   );
 };
 
-export default Home;
+export default LandingPage;
