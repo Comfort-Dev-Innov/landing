@@ -1,11 +1,22 @@
+'use client'
+
 import Image from 'next/image'
 import React from 'react'
 import Badge from '../ui/Badge'
 import Button from '../ui/Button'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
+
+const ease = [0.22, 1, 0.36, 1] as [number, number, number, number]
+
+const fadeUp = (delay: number) => ({
+  initial: { opacity: 0, y: 24 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.7, ease, delay },
+})
 
 const HeroSection = () => {
-  const badgeText = ['Trusted','Tech Forward','Custom Solution']
+  const badgeText = ['Trusted', 'Tech Forward', 'Custom Solution']
   return (
     <section className="relative w-full min-h-[500px] sm:min-h-screen p-[24px] pt-[96px] md:p-[64px] md:pt-[136px] overflow-hidden">
       {/* Layer 1: linear gradient */}
@@ -24,15 +35,20 @@ const HeroSection = () => {
         }}
       />
       {/* Layer 3: clouds image */}
-      <div className="absolute inset-0">
+      <motion.div
+        className="absolute inset-0"
+        initial={{ opacity: 0, scale: 1.04 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.4, ease }}
+      >
         <Image
           src="/images/clouds.png"
           alt=""
           fill
-          className="object-cover"
+          className="object-cover opacity-[18%]"
           priority
         />
-      </div>
+      </motion.div>
       {/* Layer 4: pixel pattern image */}
       <div className="absolute inset-0">
         <Image
@@ -43,36 +59,65 @@ const HeroSection = () => {
           priority
         />
       </div>
-      <div className="relative z-10 flex flex-col gap-[32px] sm:gap-[64px] min-h-[500px] min-[390px]:min-h-[484px] sm:min-h-[650px] items-center justify-center">
+
+      <div className="relative z-10 flex flex-col gap-[32px] sm:gap-[64px] min-h-[500px] min-[390px]:min-h-[484px] sm:min-h-[700px] items-center justify-center">
         {/* Top */}
         <div className="flex flex-col gap-[24px] items-center justify-center">
+          {/* Badges */}
           <div className="flex flex-wrap justify-center items-center gap-[8px]">
             {badgeText.map((text, index) => (
-              <Badge variant='primary' key={index}>
-                {text}
-              </Badge>
+              <motion.span key={index} {...fadeUp(0.35 + index * 0.08)}>
+                <Badge variant='primary'>{text}</Badge>
+              </motion.span>
             ))}
           </div>
+
           <div className="flex flex-col gap-[12px] items-center justify-center">
-            <h1
-              className="text-[34px] sm:text-[44px] md:text-[64px] lg:text-[94px] font-poppins font-semibold text-center"
-              style={{
-                background: 'linear-gradient(to right, #0082C9 0%, #02263A 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                lineHeight: '121.1%',
-              }}
-            >Development Made <br />Comfortable</h1>
-            <p className="text-center text-base lg:text-xl font-inter text-black">Empowering startups and enterprises with custom software<br className='max-md:hidden'/> solutions, on time, on budget, and without the stress.</p>
+            {/* Heading */}
+            <motion.div {...fadeUp(0.55)}>
+                <motion.h1
+                  className="text-[34px] sm:text-[44px] md:text-[64px] lg:text-[94px] font-poppins font-semibold text-center"
+                  style={{
+                    background: 'linear-gradient(90deg, #0082C9 0%, #02263A 33%, #1A9AE0 41%, #5BC8FF 48%, #7DDBFF 50%, #5BC8FF 52%, #1A9AE0 59%, #0082C9 67%, #02263A 100%)',
+                    backgroundSize: '300% 100%',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                    lineHeight: '121.1%',
+                    willChange: 'background-position',
+                  }}
+                  animate={{ backgroundPosition: ['100% center', '0% center'] }}
+                  transition={{
+                    duration: 1.4,
+                    ease: 'easeInOut',
+                    repeat: Infinity,
+                    repeatDelay: 5,
+                    delay: 2,
+                  }}
+                >
+                  Development Made <br />Comfortable
+                </motion.h1>
+            </motion.div>
+
+            {/* Subtext */}
+            <motion.p
+              className="text-center text-base lg:text-xl font-inter text-black"
+              {...fadeUp(0.7)}
+            >
+              Empowering startups and enterprises with custom software<br className='max-md:hidden' /> solutions, on time, on budget, and without the stress.
+            </motion.p>
           </div>
         </div>
-        {/* Bottom */}
-        <div className="flex items-center gap-[12px]">
+
+        {/* CTA Button */}
+        <motion.div
+          className="flex items-center gap-[12px]"
+          {...fadeUp(0.85)}
+        >
           <Button variant='primary' className="text-base lg:text-xl px-[24px] py-[12px]">
             <Link href='https://calendly.com/comfortdev-innovations/30min' target='_blank'>Talk to our Team!</Link>
           </Button>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

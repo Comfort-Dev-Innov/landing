@@ -6,7 +6,7 @@ type BadgeProps = {
 }
 
 const Badge = ({ variant = 'primary', children }: BadgeProps) => {
-  const base = 'flex items-center px-[8px] min-h-[390px]:px-[14px] py-[8px] gap-[10px] rounded-[90px] font-inter text-[11px] md:text-sm text-black'
+  const base = 'flex items-center px-[8px] min-[390px]:px-[14px] py-[8px] gap-[10px] rounded-[90px] font-inter text-[11px] md:text-sm text-black'
   const variants = {
     primary: 'bg-white/50',
     secondary: 'bg-secondary/[0.34]',
