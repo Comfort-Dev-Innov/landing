@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import Button from './Button'
+import Button from '../ui/Button'
 import { NAV_LINKS } from '@/constant/navigation'
 import logo from '@/public/images/primary-logo.png'
 import icon from '@/public/images/primary-icon.png'
@@ -14,7 +14,7 @@ const glassBg = {
     border: '1px solid transparent',
     background: `
         linear-gradient(to right, #F4FDFF, rgba(255,255,255,0.34)) padding-box,
-        linear-gradient(to right, rgba(255,255,255,0.58), rgba(255,255,255,0.24)) border-box
+        linear-gradient(to right, rgba(255,255,255,0.58) 0%, rgba(255,255,255,0.24) 100%) border-box
     `,
 }
 

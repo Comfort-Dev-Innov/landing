@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import Header from '@/components/ui/Header';
+import Header from '@/components/layout/Header';
 
 export const metadata: Metadata = {
   title: 'Comfort Dev | Innovation made with and for comfort',
