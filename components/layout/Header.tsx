@@ -3,18 +3,19 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import Button from './Button'
+import Button from '../ui/Button'
 import { NAV_LINKS } from '@/constant/navigation'
 import logo from '@/public/images/primary-logo.png'
 import icon from '@/public/images/primary-icon.png'
 import HamburgerIcon from '@/assets/icons/HamburgerIcon'
 import PhoneIcon from '@/assets/icons/PhoneIcon'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const glassBg = {
     border: '1px solid transparent',
     background: `
         linear-gradient(to right, #F4FDFF, rgba(255,255,255,0.34)) padding-box,
-        linear-gradient(to right, rgba(255,255,255,0.58), rgba(255,255,255,0.24)) border-box
+        linear-gradient(to right, rgba(255,255,255,0.58) 0%, rgba(255,255,255,0.24) 100%) border-box
     `,
 }
 
@@ -23,7 +24,12 @@ const Header = () => {
 
     return (
         <>
-            <div className='fixed top-0 left-0 right-0 z-50 max-w-[1312px] mx-auto font-poppins pt-[32px] max-[1400px]:px-[24px] animate-fade-to-top'>
+            <motion.div
+                className='fixed top-0 left-0 right-0 z-50 max-w-[1312px] mx-auto font-poppins pt-[32px] max-[1400px]:px-[24px]'
+                initial={{ opacity: 0, y: -32 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
+            >
                 {/* Desktop */}
                 <header
                     className="w-full flex justify-between items-center py-[4px] px-[12px] rounded-[52px] max-md:hidden"
@@ -71,26 +77,40 @@ const Header = () => {
                         </div>
                     </div>
                 </header>
-            </div>
+            </motion.div>
 
             {/* Drawer overlay */}
-            <div
-                className={`fixed inset-0 z-[60] bg-black/30 backdrop-blur-sm transition-opacity duration-300 md:hidden ${drawerOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
-                onClick={() => setDrawerOpen(false)}
-            />
+            <AnimatePresence>
+                {drawerOpen && (
+                    <motion.div
+                        className="fixed inset-0 z-[60] bg-black/30 backdrop-blur-sm md:hidden"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.25 }}
+                        onClick={() => setDrawerOpen(false)}
+                    />
+                )}
+            </AnimatePresence>
 
             {/* Drawer panel */}
-            <div
-                className={`fixed top-0 right-0 z-[70] h-full w-[75vw] max-w-[320px] font-poppins flex flex-col pt-[32px] px-[24px] pb-[40px] transition-transform duration-300 ease-in-out md:hidden ${drawerOpen ? 'translate-x-0' : 'translate-x-full'}`}
-                style={{
-                    border: '1px solid transparent',
-                    background: `
+            <AnimatePresence>
+                {drawerOpen && (
+                    <motion.div
+                        className="fixed top-0 right-0 z-[70] h-full w-[75vw] max-w-[320px] font-poppins flex flex-col pt-[32px] px-[24px] pb-[40px] md:hidden"
+                        initial={{ x: '100%' }}
+                        animate={{ x: 0 }}
+                        exit={{ x: '100%' }}
+                        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
+                        style={{
+                            border: '1px solid transparent',
+                            background: `
                         linear-gradient(135deg, #F4FDFF, rgba(255,255,255,0.88)) padding-box,
                         linear-gradient(135deg, rgba(255,255,255,0.58), rgba(255,255,255,0.24)) border-box
                     `,
-                    backdropFilter: 'blur(20px)',
-                }}
-            >
+                            backdropFilter: 'blur(20px)',
+                        }}
+                    >
                 {/* Drawer header */}
                 <div className='flex justify-between items-center mb-[40px]'>
                     <div className="w-[44px] h-[44px]">
@@ -107,18 +127,26 @@ const Header = () => {
 
                 {/* Nav links */}
                 <nav className='flex flex-col gap-[4px] flex-1'>
-                    {NAV_LINKS.map((link) => (
-                        <Link
+                    {NAV_LINKS.map((link, i) => (
+                        <motion.div
                             key={link.href}
-                            href={link.href}
-                            onClick={() => setDrawerOpen(false)}
-                            className='py-[12px] px-[8px] text-black text-[16px] font-medium border-b border-black/5 hover:text-primary hover:pl-[14px] transition-all duration-200'
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.1 + i * 0.06, duration: 0.3, ease: 'easeOut' }}
                         >
-                            {link.label}
-                        </Link>
+                            <Link
+                                href={link.href}
+                                onClick={() => setDrawerOpen(false)}
+                                className='block py-[12px] px-[8px] text-black text-[16px] font-medium border-b border-black/5 hover:text-primary hover:pl-[14px] transition-all duration-200'
+                            >
+                                {link.label}
+                            </Link>
+                        </motion.div>
                     ))}
                 </nav>
-            </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </>
     )
 }
