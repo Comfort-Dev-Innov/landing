@@ -42,7 +42,7 @@ const HeroSection = () => {
         transition={{ duration: 1.4, ease }}
       >
         <Image
-          src="/images/clouds.png"
+          src="/images/shared/clouds.png"
           alt=""
           fill
           className="object-cover opacity-[18%]"
@@ -52,7 +52,7 @@ const HeroSection = () => {
       {/* Layer 4: pixel pattern image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/pixel-pattern.png"
+          src="/images/shared/pixel-pattern.png"
           alt=""
           fill
           className="object-cover opacity-[16%]"
