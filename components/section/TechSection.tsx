@@ -187,6 +187,7 @@ const VerticalScrollSection = () => {
 const TechSection = () => {
   return (
     <section
+      id="technologies"
       className="relative w-full overflow-hidden flex flex-col py-[40px] md:py-[80px] gap-[64px] items-center justify-center"
       style={{
         backgroundColor: '#F8FDFF',

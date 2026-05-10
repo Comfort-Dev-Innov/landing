@@ -18,7 +18,7 @@ const fadeUp = (delay: number) => ({
 const HeroSection = () => {
   const badgeText = ['Trusted', 'Tech Forward', 'Custom Solution']
   return (
-    <section className="relative w-full min-h-[500px] sm:min-h-screen p-[24px] pt-[96px] md:p-[64px] md:pt-[136px] overflow-hidden">
+    <section id="hero" className="relative w-full min-h-[500px] sm:min-h-screen p-[24px] pt-[96px] md:p-[64px] md:pt-[136px] overflow-hidden">
       {/* Layer 1: linear gradient */}
       <div
         className="absolute inset-0"

@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import Button from '../ui/Button'
@@ -9,7 +9,9 @@ import logo from '@/public/images/shared/primary-logo.png'
 import icon from '@/public/images/shared/primary-icon.png'
 import HamburgerIcon from '@/assets/icons/HamburgerIcon'
 import PhoneIcon from '@/assets/icons/PhoneIcon'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion'
+
+const LIGHT_SECTION_IDS = ['technologies']
 
 const glassBg = {
     border: '1px solid transparent',
@@ -21,6 +23,41 @@ const glassBg = {
 
 const Header = () => {
     const [drawerOpen, setDrawerOpen] = useState(false)
+    const [isScrolled, setIsScrolled] = useState(false)
+    const [isLightSection, setIsLightSection] = useState(false)
+
+    const { scrollY } = useScroll()
+
+    const checkLightSection = useCallback(() => {
+        const headerBottom = 120
+        for (const id of LIGHT_SECTION_IDS) {
+            const el = document.getElementById(id)
+            if (!el) continue
+            const rect = el.getBoundingClientRect()
+            if (rect.top <= headerBottom && rect.bottom >= 0) {
+                setIsLightSection(true)
+                return
+            }
+        }
+        setIsLightSection(false)
+    }, [])
+
+    useMotionValueEvent(scrollY, 'change', (latest) => {
+        setIsScrolled(latest > 50)
+        checkLightSection()
+    })
+
+    useEffect(() => {
+        checkLightSection()
+    }, [checkLightSection])
+
+    const overlayOpacity = isScrolled ? 0.94 : 0
+
+    const boxShadow = isScrolled && isLightSection
+        ? '0px 8px 40px rgba(0,0,0,0.22)'
+        : isScrolled
+            ? '0px 4px 20px rgba(0,0,0,0.07)'
+            : '0px 0px 0px rgba(0,0,0,0)'
 
     return (
         <>
@@ -31,14 +68,23 @@ const Header = () => {
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             >
                 {/* Desktop */}
-                <header
-                    className="w-full flex justify-between items-center py-[4px] px-[12px] rounded-[52px] max-md:hidden"
+                <motion.header
+                    className="relative w-full flex justify-between items-center py-[4px] px-[12px] rounded-[52px] max-md:hidden"
                     style={glassBg}
+                    animate={{ boxShadow }}
+                    transition={{ duration: 0.4, ease: 'easeInOut' }}
                 >
-                    <div className="xl:w-[216px] xl:h-[62px] lg:w-[180px] lg:h-[52px] w-[120px] h-[32px]">
+                    {/* Near-white overlay that fades in on scroll */}
+                    <motion.div
+                        className="absolute inset-0 rounded-[52px] bg-white pointer-events-none"
+                        animate={{ opacity: overlayOpacity }}
+                        transition={{ duration: 0.45, ease: 'easeInOut' }}
+                    />
+
+                    <div className="relative z-10 xl:w-[216px] xl:h-[62px] lg:w-[180px] lg:h-[52px] w-[120px] h-[32px]">
                         <Image src={logo} alt="logo" width={216} height={100} className='w-full h-full object-contain' />
                     </div>
-                    <nav className="flex items-center gap-[10px] xl:gap-[18px]">
+                    <nav className="relative z-10 flex items-center gap-[10px] xl:gap-[18px]">
                         {NAV_LINKS.map((link) => (
                             <Link
                                 key={link.href}
@@ -49,20 +95,31 @@ const Header = () => {
                             </Link>
                         ))}
                     </nav>
-                    <Button variant='primary' className="max-lg:text-[14px]! max-xl:text-[16px]!">
-                        <Link href='https://calendly.com/comfortdev-innovations/30min' target='_blank'>Contact Us</Link>
-                    </Button>
-                </header>
+                    <div className="relative z-10">
+                        <Button variant='primary' className="max-lg:text-[14px]! max-xl:text-[16px]!">
+                            <Link href='https://calendly.com/comfortdev-innovations/30min' target='_blank'>Contact Us</Link>
+                        </Button>
+                    </div>
+                </motion.header>
 
                 {/* Mobile */}
-                <header
-                    className="w-full flex justify-between items-center py-[4px] px-[12px] rounded-[52px] md:hidden"
+                <motion.header
+                    className="relative w-full flex justify-between items-center py-[4px] px-[12px] rounded-[52px] md:hidden"
                     style={glassBg}
+                    animate={{ boxShadow }}
+                    transition={{ duration: 0.4, ease: 'easeInOut' }}
                 >
-                    <div className="w-[44px] h-[44px]">
+                    {/* Near-white overlay that fades in on scroll */}
+                    <motion.div
+                        className="absolute inset-0 rounded-[52px] bg-white pointer-events-none"
+                        animate={{ opacity: overlayOpacity }}
+                        transition={{ duration: 0.45, ease: 'easeInOut' }}
+                    />
+
+                    <div className="relative z-10 w-[44px] h-[44px]">
                         <Image src={icon} alt="logo" width={44} height={44} className='w-full h-full object-contain' />
                     </div>
-                    <div className='flex items-center gap-[12px]'>
+                    <div className='relative z-10 flex items-center gap-[12px]'>
                         <button
                             className='cursor-pointer transition-transform duration-200 hover:scale-110 active:scale-95'
                             onClick={() => setDrawerOpen(true)}
@@ -76,7 +133,7 @@ const Header = () => {
                             </Link>
                         </div>
                     </div>
-                </header>
+                </motion.header>
             </motion.div>
 
             {/* Drawer overlay */}
