@@ -154,7 +154,7 @@ const ProjectsSection = () => {
           animate="center"
           exit="exit"
           transition={{ duration: 0.32, ease: [0.4, 0, 0.2, 1] }}
-          className="flex flex-col gap-[42px] w-full"
+          className="flex flex-col gap-[16px] w-full max-w-[1240px]"
         >
           <AnimatePresence initial={false}>
             {visible.map((project, i) => (
