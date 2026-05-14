@@ -38,6 +38,17 @@ const ProjectCard = ({ title, description, image, gradient, link, tags }: Projec
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
       >
+        {/* 4-pointed diamond ray — thick at center, tapers to tips */}
+        <div
+          className="absolute inset-0 z-[1] pointer-events-none"
+          style={{
+            background: `
+              radial-gradient(ellipse 42% 100% at 50% 50%, rgba(255,255,255,0.32) 0%, transparent 100%),
+              radial-gradient(ellipse 100% 42% at 50% 50%, rgba(255,255,255,0.32) 0%, transparent 100%)
+            `,
+          }}
+        />
+
         <Image
           src={image}
           alt={title}
@@ -71,8 +82,9 @@ const ProjectCard = ({ title, description, image, gradient, link, tags }: Projec
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Visit ${title}`}
+                className="group shrink-0 transition-transform duration-200 ease-out hover:scale-110"
               >
-                <ArrowLinkIcon />
+                <ArrowLinkIcon className="transition-transform duration-200 ease-out group-hover:translate-x-[3px] group-hover:-translate-y-[3px]" />
               </a>
             )}
           </div>
