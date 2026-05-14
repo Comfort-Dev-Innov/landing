@@ -184,6 +184,8 @@ const VerticalScrollSection = () => {
   )
 }
 
+const ease = [0.22, 1, 0.36, 1] as [number, number, number, number]
+
 const TechSection = () => {
   return (
     <section
@@ -194,15 +196,35 @@ const TechSection = () => {
         backgroundImage: 'linear-gradient(to right, #F4FDFF, #FFFFFF)',
       }}
     >
-      <Heading title="Tech Stack" subTitle="Technologies" description="These are the following technologies we use to build projects at comfort." className="px-[24px] md:px-[100px]" />
-      <div className="hidden md:flex w-full flex-col gap-[32px]">
+      <motion.div
+        className="w-full px-[24px] md:px-[100px]"
+        initial={{ opacity: 0, y: 45 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.6 }}
+        transition={{ duration: 1.0, ease }}
+      >
+        <Heading title="Tech Stack" subTitle="Technologies" description="These are the following technologies we use to build projects at comfort." />
+      </motion.div>
+      <motion.div
+        className="hidden md:flex w-full flex-col gap-[32px]"
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.6 }}
+        transition={{ duration: 1.1, ease, delay: 0.15 }}
+      >
         <ScrollRow icons={row1} direction="left" />
         <ScrollRow icons={row2} direction="right" />
         <ScrollRow icons={row3} direction="left" />
-      </div>
-      <div className="md:hidden w-full">
+      </motion.div>
+      <motion.div
+        className="md:hidden w-full"
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.6 }}
+        transition={{ duration: 1.1, ease, delay: 0.15 }}
+      >
         <VerticalScrollSection />
-      </div>
+      </motion.div>
     </section>
   )
 }

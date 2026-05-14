@@ -105,6 +105,8 @@ const slideVariants = {
   exit: (dir: number) => ({ x: dir * -48, opacity: 0 }),
 }
 
+const ease = [0.22, 1, 0.36, 1] as [number, number, number, number]
+
 const ProjectsSection = () => {
   const [activeTab, setActiveTab] = useState<'web' | 'mobile'>('web')
   const [direction, setDirection] = useState(0)
@@ -123,8 +125,14 @@ const ProjectsSection = () => {
   const hasMore = filtered.length > PROJECTS_LIMIT
 
   return (
-    <section className="flex flex-col items-center gap-[52px] bg-[#F8FDFF] px-[24px] py-[80px] md:px-[100px]">
-      <div className="flex flex-col items-center gap-[32px]">
+    <section id="projects" className="flex flex-col items-center gap-[52px] bg-[#F8FDFF] px-[24px] py-[80px] md:px-[100px]">
+      <motion.div
+        className="flex flex-col items-center gap-[32px]"
+        initial={{ opacity: 0, y: 45 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.9 }}
+        transition={{ duration: 1.0, ease }}
+      >
         <Heading
           title="Works"
           subTitle="Projects"
@@ -135,7 +143,7 @@ const ProjectsSection = () => {
           defaultValue="web"
           onValueChange={handleTabChange}
         />
-      </div>
+      </motion.div>
 
       <AnimatePresence mode="wait" custom={direction}>
         <motion.div
@@ -152,12 +160,13 @@ const ProjectsSection = () => {
             {visible.map((project, i) => (
               <motion.div
                 key={project.title}
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 45 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.9 }}
                 transition={{
-                  duration: 0.36,
-                  ease: [0.4, 0, 0.2, 1],
-                  delay: i >= PROJECTS_LIMIT ? (i - PROJECTS_LIMIT) * 0.1 : 0,
+                  duration: 0.75,
+                  ease,
+                  delay: i >= PROJECTS_LIMIT ? (i - PROJECTS_LIMIT) * 0.1 : i * 0.06,
                 }}
               >
                 <ProjectCard {...project} />
