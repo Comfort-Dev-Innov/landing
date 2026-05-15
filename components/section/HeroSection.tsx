@@ -18,7 +18,7 @@ const fadeUp = (delay: number) => ({
 const HeroSection = () => {
   const badgeText = ['Trusted', 'Tech Forward', 'Custom Solution']
   return (
-    <section id="hero" className="relative w-full min-h-[500px] sm:min-h-screen p-[24px] pt-[96px] md:p-[64px] md:pt-[136px] overflow-hidden">
+    <section id="hero" className="relative w-full min-h-[500px] sm:min-h-screen p-[24px] pt-[56px] md:p-[64px] md:pt-[96px] overflow-hidden">
       {/* Layer 1: linear gradient */}
       <div
         className="absolute inset-0"
@@ -43,6 +43,7 @@ const HeroSection = () => {
       >
         <Image
           src="/images/shared/clouds.png"
+          src="/images/shared/clouds.png"
           alt=""
           fill
           className="object-cover opacity-[18%]"
@@ -53,6 +54,7 @@ const HeroSection = () => {
       <div className="absolute inset-0">
         <Image
           src="/images/shared/pixel-pattern.png"
+          src="/images/shared/pixel-pattern.png"
           alt=""
           fill
           className="object-cover opacity-[16%]"
@@ -60,7 +62,7 @@ const HeroSection = () => {
         />
       </div>
 
-      <div className="relative z-10 flex flex-col gap-[32px] sm:gap-[64px] min-h-[500px] min-[390px]:min-h-[484px] sm:min-h-[700px] items-center justify-center">
+      <div className="relative z-10 flex flex-col gap-[32px] sm:gap-[64px] min-h-[500px] min-[390px]:min-h-[484px] sm:min-h-[calc(100dvh-96px)] md:min-h-[calc(100dvh-136px)] items-center justify-center">
         {/* Top */}
         <div className="flex flex-col gap-[24px] items-center justify-center">
           {/* Badges */}

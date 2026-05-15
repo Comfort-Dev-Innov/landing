@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils'
 import React from 'react'
 
-const Heading = ({ title, subTitle, description, className, leftAlign = false }: { title: string, subTitle: string, description: string, className: string, leftAlign?: boolean }) => {
+const Heading = ({ title, subTitle, description, className, leftAlign = false }: { title: string, subTitle: string, description: string, className?: string, leftAlign?: boolean }) => {
   return (
     <div className={cn('flex flex-col gap-[12px] w-full', leftAlign ? 'items-start' : 'items-center', className)}>
       <p className='font-inter font-bold text-[11px] md:text-[14px] text-primary'>{subTitle}</p>
