@@ -162,7 +162,7 @@ const ProjectsSection = () => {
                 key={project.title}
                 initial={{ opacity: 0, y: 45 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.9 }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{
                   duration: 0.75,
                   ease,

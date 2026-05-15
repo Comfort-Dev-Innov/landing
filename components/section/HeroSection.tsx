@@ -115,7 +115,7 @@ const HeroSection = () => {
           {...fadeUp(0.85)}
         >
           <Button variant='primary' className="text-base lg:text-xl px-[24px] py-[12px]">
-            <Link href='https://calendly.com/comfortdev-innovations/30min' target='_blank'>Talk to our Team!</Link>
+            <Link href='#form'>Talk to our Team!</Link>
           </Button>
         </motion.div>
       </div>

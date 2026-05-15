@@ -7,9 +7,11 @@ import Form from '../ui/Form'
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number]
 
-const fadeUp = (delay: number) => ({
-  initial: { opacity: 0, y: 24 },
-  animate: { opacity: 1, y: 0 },
+
+const scrollFadeUp = (delay: number) => ({
+  initial: { opacity: 0, y: 32 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.2 },
   transition: { duration: 0.7, ease, delay },
 })
 
@@ -35,7 +37,8 @@ const FormSection = () => {
       <motion.div
         className="absolute inset-0"
         initial={{ opacity: 0, scale: 1.04 }}
-        animate={{ opacity: 1, scale: 1 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 1.4, ease }}
       >
         <Image
@@ -60,7 +63,7 @@ const FormSection = () => {
       <div className="relative z-10 flex max-[1000px]:flex-col gap-[40px] max-w-auto min-[1440px]:max-w-[1240px]">
         <div className="flex flex-col gap-[12px] items-start justify-center w-full min-[1000px]:w-1/2 min-[1440px]:w-[600px]">
           {/* Heading */}
-          <motion.div {...fadeUp(0.55)}>
+          <motion.div {...scrollFadeUp(0.1)}>
             <motion.h1
               className="text-2xl md:text-3xl font-poppins font-bold text-left max-w-[600px]"
               style={{
@@ -88,14 +91,16 @@ const FormSection = () => {
           {/* Subtext */}
           <motion.p
             className="text-left text-sm md:text-base font-inter text-black"
-            {...fadeUp(0.7)}
+            {...scrollFadeUp(0.25)}
           >
             Comfort Dev is here to make it real with comfort. You may schedule a free call with us on the platform of your choice.
           </motion.p>
         </div>
 
         {/* Form */}
-        <Form />
+        <motion.div className="w-full min-[1000px]:w-1/2 min-[1440px]:w-[600px] flex" {...scrollFadeUp(0.4)}>
+          <Form />
+        </motion.div>
       </div>
     </section>
   )
