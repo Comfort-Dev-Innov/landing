@@ -79,7 +79,8 @@ interface ScrollRowProps {
 const SPEED = 58 // px per second
 
 const ScrollRow = ({ icons, direction }: ScrollRowProps) => {
-  const doubled = [...icons, ...icons]
+  const expanded = [...icons, ...icons, ...icons, ...icons]
+  const doubled = [...expanded, ...expanded]
   const ref = useRef<HTMLDivElement>(null)
   const x = useMotionValue(0)
 
