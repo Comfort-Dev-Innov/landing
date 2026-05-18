@@ -43,7 +43,6 @@ const HeroSection = () => {
       >
         <Image
           src="/images/shared/clouds.png"
-          src="/images/shared/clouds.png"
           alt=""
           fill
           className="object-cover opacity-[18%]"
@@ -53,7 +52,6 @@ const HeroSection = () => {
       {/* Layer 4: pixel pattern image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/shared/pixel-pattern.png"
           src="/images/shared/pixel-pattern.png"
           alt=""
           fill
@@ -117,7 +115,7 @@ const HeroSection = () => {
           {...fadeUp(0.85)}
         >
           <Button variant='primary' className="text-base lg:text-xl px-[24px] py-[12px]">
-            <Link href='https://calendly.com/comfortdev-innovations/30min' target='_blank'>Talk to our Team!</Link>
+            <Link href='#form'>Talk to our Team!</Link>
           </Button>
         </motion.div>
       </div>

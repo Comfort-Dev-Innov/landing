@@ -11,7 +11,7 @@ import HamburgerIcon from '@/assets/icons/HamburgerIcon'
 import PhoneIcon from '@/assets/icons/PhoneIcon'
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion'
 
-const LIGHT_SECTION_IDS = ['technologies']
+const LIGHT_SECTION_IDS = ['technologies', 'projects', 'about', 'services']
 
 const glassBg = {
     border: '1px solid transparent',
