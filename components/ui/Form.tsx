@@ -93,7 +93,7 @@ const Form = () => {
 
   if (status === 'success') {
     return (
-      <div className='flex flex-col gap-[16px] w-full min-[1000px]:w-1/2 min-[1440px]:w-[600px] bg-white rounded-[24px] p-[32px] items-center justify-center text-center min-h-[300px]'>
+      <div className='flex flex-col gap-[16px] w-full min-[1000px]:w-[600px] bg-white rounded-[24px] p-[32px] items-center justify-center text-center min-h-[300px]'>
         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="24" cy="24" r="24" fill="#E6F7FF" />
           <path d="M14 24L21 31L34 17" stroke="#29B3FF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -115,7 +115,7 @@ const Form = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className='flex flex-col gap-[32px] w-full min-[1000px]:w-1/2 min-[1440px]:w-[600px] bg-white rounded-[24px] p-[32px]'
+      className='flex flex-col gap-[32px] w-full min-[1000px]:w-[600px] bg-white rounded-[24px] p-[32px]'
     >
       <h1 className='font-inter text-xl md:text-2xl font-bold'>Connect with Comfort Dev</h1>
       <div className='flex flex-col gap-[18px]'>

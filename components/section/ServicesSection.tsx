@@ -42,13 +42,15 @@ const ServicesSection = () => {
     },
   ]
   return (
-    <section id="services" className="flex flex-col w-full bg-gradient-to-r from-[#F4FDFF] to-[#FFFFFF] px-[100px] py-[80px] gap-[64px]">
+    <section id="services" className="w-full bg-gradient-to-r from-[#F4FDFF] to-[#FFFFFF] mx-auto flex justify-center">
+      <div className="flex flex-col px-[24px] md:px-[100px] py-[40px] md:py-[80px] gap-[32px] md:gap-[64px] max-w-[1392px]">
        <Heading title="What We Do" subTitle="Services" description={"Custom software services to support your vision. Whether you\nare building from scratch or expanding your existing product."} leftAlign/>
        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[24px]">
         {services.map((service) => (
           <ServiceCard key={service.serviceName} {...service} />
         ))}
 
+        </div>
         </div>
     </section>
   )
