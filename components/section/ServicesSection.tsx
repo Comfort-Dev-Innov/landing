@@ -1,4 +1,7 @@
+'use client'
+
 import React from 'react'
+import { motion } from 'framer-motion'
 import Heading from '../layout/Heading'
 import WebMobileIcon from '@/assets/icons/services/WebMobileIcon'
 import UsersIcon from '@/assets/icons/services/UsersIcon'
@@ -7,6 +10,8 @@ import CloudIcon from '@/assets/icons/services/CloudIcon'
 import BugIcon from '@/assets/icons/services/BugIcon'
 import CodeFolderIcon from '@/assets/icons/services/CodeFolderIcon'
 import ServiceCard from '../ui/ServiceCard'
+
+const ease = [0.22, 1, 0.36, 1] as [number, number, number, number]
 
 const ServicesSection = () => {
   const services = [
@@ -44,14 +49,28 @@ const ServicesSection = () => {
   return (
     <section id="services" className="w-full bg-gradient-to-r from-[#F4FDFF] to-[#FFFFFF] mx-auto flex justify-center">
       <div className="flex flex-col px-[24px] md:px-[100px] py-[40px] md:py-[80px] gap-[32px] md:gap-[64px] max-w-[1392px]">
-       <Heading title="What We Do" subTitle="Services" description={"Custom software services to support your vision. Whether you\nare building from scratch or expanding your existing product."} leftAlign/>
-       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[24px]">
-        {services.map((service) => (
-          <ServiceCard key={service.serviceName} {...service} />
-        ))}
-
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.9, ease }}
+        >
+          <Heading title="What We Do" subTitle="Services" description={"Custom software services to support your vision. Whether you\nare building from scratch or expanding your existing product."} leftAlign/>
+        </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[24px]">
+          {services.map((service, i) => (
+            <motion.div
+              key={service.serviceName}
+              initial={{ opacity: 0, y: 36 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.7, ease, delay: i * 0.08 }}
+            >
+              <ServiceCard {...service} />
+            </motion.div>
+          ))}
         </div>
-        </div>
+      </div>
     </section>
   )
 }
