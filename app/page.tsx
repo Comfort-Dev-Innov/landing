@@ -5,6 +5,7 @@ import FormSection from '@/components/section/FormSection';
 import AboutUsSection from '@/components/section/AboutUsSection';
 import ServicesSection from '@/components/section/ServicesSection';
 import React from 'react';
+import TestimonialSection from '@/components/section/TestimonialSection';
 
 function LandingPage() {
   return (
@@ -24,6 +25,7 @@ function LandingPage() {
         </div>
         <TechSection />
         <ProjectsSection />
+        <TestimonialSection />
         <FormSection />
       </>
   );
