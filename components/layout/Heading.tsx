@@ -8,7 +8,7 @@ const Heading = ({ title, subTitle, description, className, leftAlign = false }:
       <h2 className={cn('text-2xl md:text-4xl font-poppins font-bold', leftAlign ? 'text-left' : 'text-center')}>
         {title}
       </h2>
-      <p className={cn('text-sm md:text-base font-inter text-black', leftAlign ? 'text-left' : 'text-center')}>
+      <p className={cn('text-sm md:text-base font-inter text-black whitespace-pre-line', leftAlign ? 'text-left' : 'text-center')}>
         {description}
       </p>
     </div>

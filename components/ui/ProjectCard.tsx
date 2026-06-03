@@ -28,7 +28,7 @@ const ProjectCard = ({ title, description, image, gradient, link, tags }: Projec
   const handleMouseLeave = () => setGlowPos(null)
 
   return (
-    <div className="flex flex-col lg:flex-row w-full rounded-[24px] h-auto max-h-auto lg:h-[435px] lg:max-h-[435px] p-[12px] gap-[32px] bg-white border border-black/[0.08] shadow-sm">
+    <div className="flex flex-col lg:flex-row w-full rounded-[24px] h-auto max-h-auto lg:h-[435px] lg:max-h-[435px] p-[12px] gap-[32px] bg-white border border-black/[0.08] shadow-sm transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-md hover:border-black/[0.12]">
       {/* Image panel with radial gradient backdrop */}
       <div
         className="relative w-full lg:w-1/2 shrink-0 self-stretch rounded-[12px] overflow-hidden"
