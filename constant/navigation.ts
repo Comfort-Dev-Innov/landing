@@ -6,3 +6,21 @@ export const NAV_LINKS = [
   { label: 'Projects', href: '#projects' },
   { label: 'Testimonials', href: '#testimonials' },
 ]
+
+export const FOOTER_LINKS = [
+  { label: 'Home', href: '#hero' },
+  { label: 'Schedule a Meeting', href: 'https://calendly.com/comfortdev-innovations/30min' },
+]
+
+export const SOCIAL_LINKS = [
+  { icon: 'facebook', href: 'https://facebook.com/comfortdev', label: 'Facebook' },
+  { icon: 'instagram', href: 'https://instagram.com/comfortdev', label: 'Instagram' },
+  { icon: 'linkedin', href: 'https://linkedin.com/company/comfortdev', label: 'LinkedIn' },
+  { icon: 'github', href: 'https://github.com/Comfort-Dev-Innov', label: 'GitHub' },
+]
+
+export const CONTACT_ITEMS = [
+  { icon: 'distance', text: 'Apas, Cebu City, Philippines 6000' },
+  { icon: 'mail', text: 'admin@comfortdev.net' },
+  { icon: 'call', text: '+639760134543 / +639551957592' },
+]
