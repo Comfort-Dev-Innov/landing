@@ -12,7 +12,7 @@ const testimonials = [
         review: "I've worked with Comfort Dev to kickstart the online presence of two of my companies, Data Genie and Go Get Leads. After launching the websites, we've seen a significant growth in the business and an increase in our clientele. From our initial conversation and even after launching our sites, communication and the turn-around time with this team has been amazing. If you want a professional web development team that can make your vision for your website come to life and get the results that you want, I highly recommend Comfort Dev. I'm looking forward to working with these people again!",
         firstName: 'Bo',
         lastName: 'R.',
-        position: 'CEO',
+        position: 'Founder/Product Owner',
         company: 'Data Genie',
         tags: ['Landing Page','React', 'NextJS', 'Tailwind', 'Javascript(TS)', 'Vercel'],
     },
