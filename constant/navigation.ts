@@ -13,7 +13,7 @@ export const FOOTER_LINKS = [
 ]
 
 export const SOCIAL_LINKS = [
-  { icon: 'facebook', href: 'https://www.facebook.com/profile.php?id=61589496494209', label: 'Facebook' },
+  { icon: 'facebook', href: 'https://www.facebook.com/profile.php?id=61589854559169&mibextid=wwXIfr', label: 'Facebook' },
   { icon: 'instagram', href: 'https://www.instagram.com/comfortdev.innovations', label: 'Instagram' },
   { icon: 'linkedin', href: 'https://www.linkedin.com/in/comfort-dev-innovations-926a89379/', label: 'LinkedIn' },
   { icon: 'github', href: 'https://github.com/Comfort-Dev-Innov', label: 'GitHub' },
