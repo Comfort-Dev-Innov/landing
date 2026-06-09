@@ -14,7 +14,7 @@ interface TestimonialProps {
 const TestimonialCard = ({ review, imgUrl, firstName, lastName, position, company, tags }: TestimonialProps) => {
     return (
         <div className="flex flex-col gap-[40px] justify-center items-center w-full">
-            <h1 className="font-inter font-medium text-[24px] lg:text-[30px] text-black text-center">
+            <h1 className="font-inter font-medium text-[24px] lg:text-[26px] text-black text-center">
                 {review}
             </h1>
             <div className="flex flex-col gap-[18px] justify-center items-center w-full">
